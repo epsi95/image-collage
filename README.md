@@ -19,7 +19,8 @@ Output image will in in ./output/<output_image>
 
 ## Master
 <img src="https://github.com/epsi95/image-collage/blob/master/master/Sherlock_Brett.jpg" width="200px">
-## Child
+
+## Children
 <img src="https://github.com/epsi95/image-collage/blob/master/children/1012335_1200.jpg" width="50px" height="50px">
 <img src="https://github.com/epsi95/image-collage/blob/master/children/12048353.jpg" width="50px" height="50px">
 <img src="https://github.com/epsi95/image-collage/blob/master/children/7988ab0ea27ba07a69e4373f271bb6ca.jpg" width="50px" height="50px">
