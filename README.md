@@ -39,5 +39,3 @@ Output image will in in ./output/<output_image>
 
 -----------------------------------
 
-- epsi95
-
