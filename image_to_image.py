@@ -60,10 +60,15 @@ def get_dominant_color(img):
 def apply_color_filter(color, image):
     # create an image with a single color (here: red)
     color_img = np.full((image.shape[0], image.shape[1], 3),color, np.float64)
-
-    # add the filter  with a weight factor of 20% to the target image
-    filtered_img = cv2.addWeighted(image, (1 - WEGHT), color_img, WEGHT, 0)
-    return img_as_float(filtered_img)
+    try:
+        # add the filter  with a weight factor of 20% to the target image
+        filtered_img = cv2.addWeighted(image, (1 - WEGHT), color_img, WEGHT, 0)
+        return img_as_float(filtered_img)
+    except Exception as e:
+        print(f"shape of color_img {color_img.shape}")
+        print(f"shape of image {image.shape}")
+        raise Exception(e)
+              
 
 
 # importing child images and storing them
@@ -77,6 +82,8 @@ for child in child_images:
 #     y_dim = child.shape[0]
     #child = resize(child, (CHILD_SIZE, round((CHILD_SIZE/y_dim)*x_dim)), anti_aliasing=True)
     if(len(child.shape) == 3):
+        if(child.shape[2] > 3):
+            child = child[:, :, :3]
         # only process color image
         child = resize(child, (CHILD_SIZE, CHILD_SIZE))
         children.append(img_as_float(child))
@@ -137,8 +144,3 @@ final_image_with_alpha_background = (1-ALPHA) * master + ALPHA * final_image
 
 # saving the image
 io.imsave('./output/output_with_alpha.png', img_as_ubyte(final_image_with_alpha_background))
-
-
-
-
-
