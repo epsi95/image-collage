@@ -39,4 +39,5 @@ Output image will in in ./output/<output_image>
 
 
 -----------------------------------
+check out a frontend version <a href="https://cat95.pythonanywhere.com/">here</a>
 
